@@ -6,7 +6,7 @@ class ParksController < ApplicationController
   # GET /parks.json
   def index
     @parks = Park.all
-    get_json
+    #get_json
   end
 
 
