@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :parks
   root 'welcomes#index'
+  get '/note',to: "welcomes#note"
+
+  #get '/mobile',to: "syncs#mobile"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
