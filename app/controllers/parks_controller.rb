@@ -17,34 +17,35 @@ class ParksController < ApplicationController
         # p JSON.parse(response)
         # p price_data["parkName"]
         # price_data.each do |u|
-        Park.destroy_all
+        #Park.destroy_all
         price_data['result']['records'].each do |u|
-            #@park = Park.all
-            #@park.each do |park|
-                #if park.areaid == u['areaId'].to_s
-                #    p park.parkname
-                #    p u['parkName'].to_s
-                #    park.surplusspace = u['surplusSpace'].to_s
-                #    park.updatetime = u['updatetime'].to_s
-                #    park.save
+            @park = Park.all
+            @park.each do |park|
+                if park.areaid == u['areaId'].to_s
+                    p park.parkname
+                    p u['parkName'].to_s
+                    p u['surplusSpace'].to_s
+                    park.surplusspace = u['surplusSpace'].to_s
+                    park.updatetime = u['updatetime'].to_s
+                    park.save
                 #else
-                  Park.create(
-                      _id: u['_id'].to_s,
-                      parkid: u['parkId'].to_s,
-                      areaid: u['areaId'].to_s,
-                      areaname: u['areaName'].to_s,
-                      parkname: u['parkName'].to_s,
-                      introduction: u['introduction'].to_s,
-                      address: u['address'].to_s,
-                      totalspace: u['totalSpace'].to_s,
-                      surplusspace: u['surplusSpace'].to_s,
-                      payguide: u['payGuide'].to_s,
-                      updatetime: u['updatetime'].to_s,
-                      wgsx: u['wgsX'].to_s,
-                      wgsy: u['wgsY'].to_s
-                  )
-                #end
-            #end
+                #  Park.create(
+                #      _id: u['_id'].to_s,
+                #      parkid: u['parkId'].to_s,
+                #      areaid: u['areaId'].to_s,
+                #      areaname: u['areaName'].to_s,
+                #      parkname: u['parkName'].to_s,
+                #      introduction: u['introduction'].to_s,
+                #      address: u['address'].to_s,
+                #      totalspace: u['totalSpace'].to_s,
+                #      surplusspace: u['surplusSpace'].to_s,
+                #      payguide: u['payGuide'].to_s,
+                #      updatetime: u['updatetime'].to_s,
+                #      wgsx: u['wgsX'].to_s,
+                #      wgsy: u['wgsY'].to_s
+                #  )
+                end
+            end
         end
     end
     # if u["type"].to_s != nil
