@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :parks
   root 'welcomes#index'
   get '/note',to: "welcomes#note"
+  get '/test',to: "welcomes#test"
+
 
   #get '/mobile',to: "syncs#mobile"
 
