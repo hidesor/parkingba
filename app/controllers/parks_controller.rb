@@ -13,9 +13,9 @@ class ParksController < ApplicationController
     def index
       @parks = Park.all
       if params[:search]
-        @parks = Park.search(params[:search]).order("created_at DESC")
+        @parks = Park.search(params[:search]).order(wgsx: params[:order])
       else
-        @parks = Park.all.order('created_at DESC')
+        @parks = Park.all.order(wgsx: params[:order])
       end
     end
 
