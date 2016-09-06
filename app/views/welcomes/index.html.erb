@@ -1,3 +1,6 @@
+
+
+
 <p id="notice"><%= notice %></p>
 <% i = 0 %>
 <table class="table table-striped responsive-utilities jambo_table bulk_action">
@@ -8,6 +11,8 @@
       <th>現有格數</th>
       <th>總隔數</th>
       <th>更新日期</th>
+      <th>x</th>
+      <th>y</th>
     </tr>
   </thead>
 
@@ -16,10 +21,12 @@
     <% i += 1 %>
       <tr>
         <td><%= i %></td>
-        <td><%=park.parkname  %></td>
-        <td><%=park.surplusspace  %></td>
-        <td><%=park.totalspace  %></td>
-        <td><%=park.updatetime %></td>
+        <td><%= park.parkname  %></td>
+        <td><%= park.surplusspace  %></td>
+        <td><%= park.totalspace  %></td>
+        <td><%= park.updatetime %></td>
+        <td><%= park.wgsx.to_f  %></td>
+        <td><%= park.wgsy.to_f  %></td>
       </tr>
     <% end %>
   </tbody>

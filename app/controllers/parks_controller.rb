@@ -4,9 +4,19 @@ class ParksController < ApplicationController
     require 'json'
     # GET /parks
     # GET /parks.json
-    def index
-        @parks = Park.all
+    #def index
+        #@parks = Park.all
+          #@parks = Park.search(params[:search])
         #get_json
+    #end
+
+    def index
+      @parks = Park.all
+      if params[:search]
+        @parks = Park.search(params[:search]).order("created_at DESC")
+      else
+        @parks = Park.all.order('created_at DESC')
+      end
     end
 
     def get_json

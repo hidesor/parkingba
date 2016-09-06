@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+
+
+
+
+<%= form_tag(parks_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "請輸入停車場名..." %>
+<%= submit_tag "Search" %>
+<% end %>
+
+
+
 <h1>Listing Parks</h1>
 
 <table>
