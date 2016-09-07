@@ -15,3 +15,14 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+
+.park_background_image_cabin {
+    background-image: image-url("parking-imgs/park_ground.png");
+    height:200px;
+ }
+ .park_content{
+   padding-top: 30px;
+   padding-left: 20px;
+ }
