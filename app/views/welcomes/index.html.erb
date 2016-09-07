@@ -1,12 +1,35 @@
-
-
-
 <p id="notice"><%= notice %></p>
+
+<p id="demo">点击这个按钮，获得您的坐标：</p>
+<button onclick="getLocation()">试一下</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br />Longitude: " + position.coords.longitude;
+  }
+</script>
+
+<% @userx = 121.5906011 %>
+<% @usery = 25.0795282 %>
+
+
 <% i = 0 %>
 <table class="table table-striped responsive-utilities jambo_table bulk_action">
   <thead>
     <tr>
-      <th></th>
+      <th>count</th>
+      <th>xx</th>
+      <th>yy</th>
       <th>停車場名稱</th>
       <th>現有格數</th>
       <th>總隔數</th>
@@ -18,9 +41,11 @@
 
   <tbody>
     <% @parks.each do |park| %>
-    <% i += 1 %>
       <tr>
-        <td><%= i %></td>
+        <td><%= (park.wgsx.to_f-@userx.to_f)*(park.wgsx.to_f-@userx.to_f)+(park.wgsy.to_f-@usery.to_f)*(park.wgsy.to_f-@usery.to_f)  %> </td>
+        <td><%= (park.wgsx.to_f-@userx.to_f)*(park.wgsx.to_f-@userx.to_f) %> </td>
+        <td><%= (park.wgsy.to_f-@usery.to_f)*(park.wgsy.to_f-@usery.to_f) %> </td>
+
         <td><%= park.parkname  %></td>
         <td><%= park.surplusspace  %></td>
         <td><%= park.totalspace  %></td>

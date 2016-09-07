@@ -11,10 +11,14 @@ class ParksController < ApplicationController
     #end
 
     def index
+      p '---userx--'
+      p params[:userx]
+      p '---usery--'
+      p params[:usery]
       @parks = Park.all
-      if params[:search]
+      if params[:search] && params[:order]
         @parks = Park.search(params[:search]).order(wgsx: params[:order])
-      else
+      elsif params[:order]
         @parks = Park.all.order(wgsx: params[:order])
       end
     end
