@@ -34,23 +34,23 @@
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
                     <!-- <a class="navbar-brand" href="#page-top">Parking Ba!</a> -->
-                    <a class="navbar-brand" href="#page-top"><div class="logo_rotate"><%= image_tag("packingba_logo.png") %></div></a>
+                    <a class="navbar-brand" href="#page-top"><div class="logo_rotate" id="0"><%= image_tag("packingba_logo.png") %></div></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
+                        <li class="hidden ">
                             <a href="#page-top"></a>
                         </li>
-                        <li class="page-scroll">
-                            <a href="#portfolio">停車場們</a>
+                        <li class="page-scroll menu_li">
+                            <a class="menu_word" href="#portfolio">停車場們</a>
                         </li>
-                        <li class="page-scroll">
-                            <a href="#about">說明</a>
+                        <li class="page-scroll menu_li">
+                            <a class="menu_word" href="#about">說明</a>
                         </li>
-                        <li class="page-scroll">
-                            <a href="<%= note_path %>">紀錄</a>
+                        <li class="page-scroll menu_li">
+                            <a class="menu_word" href="<%= note_path %>">紀錄</a>
                         </li>
 
                     </ul>
@@ -91,17 +91,29 @@
 
                 <div class="row">
                   <% @parks.each do |park| %>
+
                     <div class="col-sm-4 portfolio-item" >
+
                         <a href="#portfolioModal1" class="portfolio-link park_background_image_cabin" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"><%= park.surplusspace %></I></div>
-                                </div>
+                              <!-- <div class="caption">-->
+                              <!--  <div class="caption-content"> -->
+                              <!--      <i class="fa fa-search-plus fa-3x"><%= park.surplusspace %></I></div> -->
+                              <!--  </div> -->
                               <div class="park_content">
-                                <p style="color:#FFFFFF";><%= park.areaname %></p>
-                                <p style="color:#FFFFFF";><%= park.parkname %></p>
-                                <p style="color:#FFFFFF";><%= park.surplusspace %>/<%= park.totalspace %></p>
-                                <p style="color:#FFFFFF";><%= park.updatetime %></p>
+                                <p class="show_surplusspace_div abgne-control"><%= park.surplusspace %></p>
+                                <p class="park_content_word";>
+                                所在區域：<%= park.areaname %><br>
+                                </p>
+                                <p class="park_content_word";>
+                                  停車場名稱：<%= park.parkname %><br>
+                                </p>
+                                <!--  <!%= park.totalspace %><br> -->
+                                <p class="park_content_word";>
+                                  更新時間：<%= park.updatetime %><br>
+                                </p>
+                                <p class="park_content_word";>
+                                  附近景點：
+                                </p>
                               </div>
                           <!--  <!%= image_tag "parking-imgs/cabin.png", class:"img-responsive"%> -->
                           <!--  <div class="fill" style="background-image:url(<!%=type.photo.image.url %>)"></div> -->
