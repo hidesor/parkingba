@@ -100,7 +100,15 @@
                               <!--      <i class="fa fa-search-plus fa-3x"><%= park.surplusspace %></I></div> -->
                               <!--  </div> -->
                               <div class="park_content">
-                                <p class="show_surplusspace_div abgne-control"><%= park.surplusspace %></p>
+                                <p class="show_surplusspace_div abgne-control">
+                                <% if park.surplusspace == '開放中' %>
+                                   ?
+                                <% elsif park.surplusspace == '車位已滿' %>
+                                   0
+                                <% else %>
+                                  <%= park.surplusspace %>
+                                <% end %>
+                                </p>
                                 <p class="park_content_word";>
                                 所在區域：<%= park.areaname %><br>
                                 </p>
