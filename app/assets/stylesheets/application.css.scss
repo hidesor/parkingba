@@ -16,13 +16,30 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ .div_container {
+     background-image: image-url("parking-imgs/background.png");
+
+ }
 
 
-.park_background_image_cabin {
+.park_background_image_cabin_a {
     /*background-image: image-url("parking-imgs/park_ground.png");*/
     height:200px;
-    background: linear-gradient(#39F 20%, #6AF 80%);
+    /*background: linear-gradient(#39F 20%, #6AF 80%);*/
+    background-color: #1fa6c6;   /* 1fa6c6  a1a206  e69f0d*/
  }
+ .park_background_image_cabin_b {
+     /*background-image: image-url("parking-imgs/park_ground.png");*/
+     height:200px;
+     /*background: linear-gradient(#39F 20%, #6AF 80%);*/
+     background-color: #a1a206;   /* 1fa6c6  a1a206  e69f0d*/
+  }
+  .park_background_image_cabin_c {
+      /*background-image: image-url("parking-imgs/park_ground.png");*/
+      height:200px;
+      /*background: linear-gradient(#39F 20%, #6AF 80%);*/
+      background-color: #e69f0d;   /* 1fa6c6  a1a206  e69f0d*/
+   }
  .park_content{
    padding-top: 30px;
    padding-left: 20px;
@@ -42,9 +59,13 @@
    padding-top: 0px;
 /*   padding-right: 20px;  */
    text-align:right;
+/*   font-family:Comic Sans MS,arial,helvetica,sans-serif; */
+   font-weight: bold;
 }
 
-
+.park_container{
+  color:#FFFF00;
+}
 
 
 

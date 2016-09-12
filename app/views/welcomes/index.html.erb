@@ -24,7 +24,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     </head>
-    <body id="page-top" class="index">
+    <body id="page-top" class="index div_container">
         <!-- Navigation -->
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
             <div class="container">
@@ -83,7 +83,7 @@
           <section id="portfolio">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 text-center">
+                    <div class="col-lg-12 text-center park_container">
                         <h2>Parking List</h2>
                         <hr class="star-primary">
                     </div>
@@ -93,8 +93,14 @@
                   <% @parks.each do |park| %>
 
                     <div class="col-sm-4 portfolio-item" >
-
-                        <a href="#portfolioModal1" class="portfolio-link park_background_image_cabin" data-toggle="modal">
+                      <% if park.id % 3 == 1 %>
+                          <% cssa = "park_background_image_cabin_a" %>
+                      <% elsif  park.id % 3 == 2 %>
+                          <% cssa = "park_background_image_cabin_b" %>
+                      <% else %>
+                          <% cssa = "park_background_image_cabin_c" %>
+                      <% end %>
+                        <a href="#portfolioModal1" class="portfolio-link <%= cssa %>" data-toggle="modal">
                               <!-- <div class="caption">-->
                               <!--  <div class="caption-content"> -->
                               <!--      <i class="fa fa-search-plus fa-3x"><%= park.surplusspace %></I></div> -->
@@ -110,7 +116,7 @@
                                 <% end %>
                                 </p>
                                 <p class="park_content_word";>
-                                所在區域：<%= park.areaname %><br>
+                                  所在區域：<%= park.areaname %><br>
                                 </p>
                                 <p class="park_content_word";>
                                   停車場名稱：<%= park.parkname %><br>
