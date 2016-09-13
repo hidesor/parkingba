@@ -17,21 +17,24 @@ class ParksController < ApplicationController
       p params[:usery]
       @parks = Park.all
       if params[:search] && params[:order]
-        @parks = Park.search(params[:search]).order(wgsx: params[:order])
+        #@parks = Park.search(params[:search]).order(wgsx: params[:order])
+        @parks = Park.search(params[:search]).order(:parkid)
       elsif params[:order]
-        @parks = Park.all.order(wgsx: params[:order])
+        #@parks = Park.all.order(wgsx: params[:order])
+        @parks = Park.all.order(:parkid)
       end
+      #get_json_create
     end
 
     def get_json
-        url = 'http://data.tycg.gov.tw/TYCG_OPD/api/v1/rest/datastore/0daad6e6-0632-44f5-bd25-5e1de1e9146f;jsessionid=5251A4CFEE3E8993357074A495B31C91?format=json'
+        url = 'http://data.tycg.gov.tw/api/v1/rest/datastore/0daad6e6-0632-44f5-bd25-5e1de1e9146f?format=json'
         response = RestClient.get(url)
         price_data = JSON.parse(response)
         # 以下為Json格式
         # p JSON.parse(response)
         # p price_data["parkName"]
         # price_data.each do |u|
-        #Park.destroy_all
+        Park.destroy_all
         price_data['result']['records'].each do |u|
             @park = Park.all
             @park.each do |park|
@@ -61,6 +64,31 @@ class ParksController < ApplicationController
                 end
             end
         end
+    end
+
+    def get_json_create
+      url = 'http://data.tycg.gov.tw/api/v1/rest/datastore/0daad6e6-0632-44f5-bd25-5e1de1e9146f?format=json'
+      response = RestClient.get(url)
+      price_data = JSON.parse(response)
+      Park.destroy_all
+      price_data['result']['records'].each do |u|
+      Park.create(
+          _id: u['_id'].to_s,
+          parkid: u['parkId'].to_s,
+          areaid: u['areaId'].to_s,
+          areaname: u['areaName'].to_s,
+          parkname: u['parkName'].to_s,
+          introduction: u['introduction'].to_s,
+          address: u['address'].to_s,
+          totalspace: u['totalSpace'].to_s,
+          surplusspace: u['surplusSpace'].to_s,
+          payguide: u['payGuide'].to_s,
+          #updatetime: u['updatetime'].to_s,
+          updatetime: Time.new.to_formatted_s(:db).to_s,
+          wgsx: u['wgsX'].to_s,
+          wgsy: u['wgsY'].to_s
+      )
+    end
     end
     # if u["type"].to_s != nil
     # p u["_id"].to_s
