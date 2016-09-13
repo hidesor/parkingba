@@ -16,11 +16,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+
+
  .div_container {
      background-image: image-url("parking-imgs/background.png");
-
+     background-color: #fee6be;   /* 1fa6c6  a1a206  e69f0d*/
  }
-
+.div_about{
+  background-color: #fee6be;   /* 1fa6c6  a1a206  e69f0d*/
+  padding-top: 130px;
+  padding-bottom: 50px;
+}
+.text_about{
+  color:#31c9de;
+}
 
 .park_background_image_cabin_a {
     /*background-image: image-url("parking-imgs/park_ground.png");*/
