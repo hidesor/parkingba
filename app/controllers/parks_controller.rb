@@ -44,7 +44,7 @@ class ParksController < ApplicationController
                     p u['parkName'].to_s
                     p u['surplusSpace'].to_s
                     park.surplusspace = u['surplusSpace'].to_s
-                    park.updatetime = Time.new.to_formatted_s(:db).to_s
+                    park.updatetime = Time.now.localtime.to_formatted_s(:db).to_s
                     park.save
                 #else
                 #  Park.create(
