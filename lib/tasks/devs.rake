@@ -10,7 +10,7 @@ namespace :devs do
           @park.each do |park|
               if park.areaid == u['areaId'].to_s
                   park.surplusspace = u['surplusSpace'].to_s
-                  park.updatetime = Time.new.to_formatted_s(:db).to_s,
+                  park.updatetime = Time.new.to_formatted_s(:db).to_s
                   park.save
               end
           end
