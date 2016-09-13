@@ -24,6 +24,7 @@ class ParksController < ApplicationController
         @parks = Park.all.order(:parkid)
       end
       #get_json_create
+      get_json
     end
 
     def get_json
@@ -34,7 +35,7 @@ class ParksController < ApplicationController
         # p JSON.parse(response)
         # p price_data["parkName"]
         # price_data.each do |u|
-        Park.destroy_all
+        #Park.destroy_all
         price_data['result']['records'].each do |u|
             @park = Park.all
             @park.each do |park|
@@ -43,7 +44,7 @@ class ParksController < ApplicationController
                     p u['parkName'].to_s
                     p u['surplusSpace'].to_s
                     park.surplusspace = u['surplusSpace'].to_s
-                    park.updatetime = u['updatetime'].to_s
+                    park.updatetime = Time.new.to_formatted_s(:db).to_s
                     park.save
                 #else
                 #  Park.create(
