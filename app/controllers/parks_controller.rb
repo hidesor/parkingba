@@ -39,7 +39,7 @@ class ParksController < ApplicationController
         price_data['result']['records'].each do |u|
             @park = Park.all
             @park.each do |park|
-                if park.areaid == u['areaId'].to_s
+                if park.parkid == u['parkId'].to_s
                     p park.parkname
                     p u['parkName'].to_s
                     p u['surplusSpace'].to_s
