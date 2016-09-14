@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Parking Ba!</title>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -31,10 +31,14 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle navigation</span>
+                        Menu
+                        <i class="fa fa-bars"></i>
                     </button>
                     <!-- <a class="navbar-brand" href="#page-top">Parking Ba!</a> -->
-                    <a class="navbar-brand" href="#page-top"><div class="logo_rotate" id="0"><%= image_tag("packingba_logo.png") %></div></a>
+                    <a class="navbar-brand" href="#page-top">
+                        <div class="logo_rotate" id="0"><%= image_tag("packingba_logo.png") %></div>
+                    </a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,20 +70,21 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <%# <img class="img-responsive" src="img/profile.png" alt=""> %>
-                        <div class="intro-text text_about">
+                        <div class="intro-text">
                             <!--<span class="name">PACKING BA!</span> -->
-                            <h1>桃園停車場查詢系統</h1>
+                            <h1 class="text_about_a">桃園停車場查詢系統</h1>
                             <%# <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span> %>
-                            <h2>本系統Parking Ba! 『就停激烈』是項提供停車資訊app,依停車場與使用者的距離由近而遠排序，即時提供停車場的空位，由各位使用者依照需求選擇</h2>
+                            <h2 class="text_about_b">本系統Parking Ba! 『就停激烈』是項提供停車資訊APP，
+                                依停車場與使用者的距離由近而遠排序，
+                                即時提供停車場的現有空位由各位使用者依照需求選擇</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
 
-
         <!-- Portfolio Grid Section -->
-          <section id="portfolio">
+        <section id="portfolio">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center park_container">
@@ -89,57 +94,55 @@
                 </div>
 
                 <div class="row">
-                  <% @parks.each do |park| %>
+                    <% @parks.each do |park| %>
 
-                    <div class="col-sm-4 portfolio-item" >
-                      <% if park.id % 3 == 1 %>
-                          <% cssa = "park_background_image_cabin_a" %>
-                      <% elsif  park.id % 3 == 2 %>
-                          <% cssa = "park_background_image_cabin_b" %>
-                      <% else %>
-                          <% cssa = "park_background_image_cabin_c" %>
-                      <% end %>
+                    <div class="col-sm-4 portfolio-item">
+                        <% if park.id % 3 == 1 %>
+                        <% cssa = "park_background_image_cabin_a" %>
+                        <% elsif  park.id % 3 == 2 %>
+                        <% cssa = "park_background_image_cabin_b" %>
+                    <% else %>
+                        <% cssa = "park_background_image_cabin_c" %>
+                        <% end %>
                         <a href="#portfolioModal1" class="portfolio-link <%= cssa %>" data-toggle="modal">
-                              <!-- <div class="caption">-->
-                              <!--  <div class="caption-content"> -->
-                              <!--      <i class="fa fa-search-plus fa-3x"><%= park.surplusspace %></I></div> -->
-                              <!--  </div> -->
-                              <div class="park_content">
+                            <!-- <div class="caption">-->
+                            <!--  <div class="caption-content"> -->
+                            <!--      <i class="fa fa-search-plus fa-3x"><%= park.surplusspace %></I></div> -->
+                            <!--  </div> -->
+                            <div class="park_content">
                                 <p class="show_surplusspace_div abgne-control">
-                                <% if park.surplusspace == '開放中' %>
-                                   ?
-                                <% elsif park.surplusspace == '車位已滿' %>
-                                   0
+                                    <% if park.surplusspace == '開放中' %>
+                                    ?
+                                    <% elsif park.surplusspace == '車位已滿' %>
+                                    0
                                 <% else %>
-                                  <%= park.surplusspace %>
-                                <% end %>
+                                    <%= park.surplusspace %>
+                                    <% end %>
                                 </p>
-                                <p class="park_content_word";>
-                                  所在區域：<%= park.areaname %><br>
+                                <p class="park_content_word" ;>
+                                    所在區域：<%= park.areaname %><br>
                                 </p>
-                                <p class="park_content_word";>
-                                  停車場名稱：<%= park.parkname %><br>
+                                <p class="park_content_word" ;>
+                                    停車場名稱：<%= park.parkname %><br>
                                 </p>
                                 <!--  <!%= park.totalspace %><br> -->
-                                <p class="park_content_word";>
-                                  更新時間：<%= park.updatetime %><br>
+                                <p class="park_content_word" ;>
+                                    更新時間：<%= park.updatetime %><br>
                                 </p>
-                                <p class="park_content_word";>
-                                  附近景點：
+                                <p class="park_content_word" ;>
+                                    附近景點：
                                 </p>
-                              </div>
-                          <!--  <!%= image_tag "parking-imgs/cabin.png", class:"img-responsive"%> -->
-                          <!--  <div class="fill" style="background-image:url(<!%=type.photo.image.url %>)"></div> -->
+                            </div>
+                            <!--  <!%= image_tag "parking-imgs/cabin.png", class:"img-responsive"%> -->
+                            <!--  <div class="fill" style="background-image:url(<!%=type.photo.image.url %>)"></div> -->
                         </a>
                     </div>
-                  <% end %>
+                    <% end %>
                 </div>
             </div>
         </section>
 
-
-        <section id="contact">
-        </section>
+        <section id="contact"></section>
 
         <!-- Footer -->
         <footer class="text-center">
@@ -153,19 +156,29 @@
                             <h3>Around the Web</h3>
                             <ul class="list-inline">
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                    <a href="#" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-facebook"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                    <a href="#" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-google-plus"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                    <a href="#" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-twitter"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                                    <a href="#" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-linkedin"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                                    <a href="#" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-dribbble"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
