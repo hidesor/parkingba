@@ -28,6 +28,7 @@ gem 'bootstrap-sass'
 gem 'nokogiri'
 gem 'mechanize'
 gem 'i18n-active_record'
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
