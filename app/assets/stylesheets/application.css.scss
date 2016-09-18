@@ -17,7 +17,9 @@
  @import "bootstrap";
 
 
-
+.navbar-background{
+  background-image: image-url("parking-imgs/navbar_background.png");
+}
 
  .div_container {
      background-image: image-url("parking-imgs/background.png");
@@ -37,6 +39,14 @@
   text-align: left;
   width: 70%;
   margin-left: 15%;
+}
+
+.div_model{
+  position:absolute;
+  z-index:1000;
+}
+.text_model{
+  color:#31c9de;
 }
 
 .park_background_image_cabin_a {

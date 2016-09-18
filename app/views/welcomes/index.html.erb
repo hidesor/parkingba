@@ -7,7 +7,6 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Parking Ba!</title>
-
         <!-- Bootstrap Core CSS -->
         <%# <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> %>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -27,9 +26,9 @@
     <body id="page-top" class="index div_container herder">
         <!-- Navigation -->
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-            <div class="container">
+            <div class="container navbar-background ">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll">
+                <div class="navbar-header  page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         Menu
@@ -74,10 +73,21 @@
                             <!--<span class="name">PACKING BA!</span> -->
                             <h1 class="text_about_a">桃園停車場查詢系統</h1>
                             <%# <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span> %>
-                            <h2 class="text_about_b">本系統Parking Ba! 『就停激烈』是項提供停車資訊APP，
-                                依停車場與使用者的距離由近而遠排序，
-                                即時提供停車場的現有空位由各位使用者依照需求選擇</h2>
+                            <h2 class="text_about_b">本系統Parking Ba! 『就停激烈』是即時停車資訊的app，
+                                依各停車場距您目前的近遠來排序，替使用者爭取分秒，在最短的時間內停好愛車</h2>
                         </div>
+                        <!-- Large modal -->
+                        <% park_id = nil %>
+                        <% @parks.each do |park| %>
+                              <% park_id = park.id %>
+                              <div class="modal div_model fade bs-example-modal-<%= park_id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                <div class="modal-dialog modal-lg" role="document">
+                                  <div class="modal-content">
+                                    <a class="text_model"> <%= park.payguide %></a>
+                                  </div>
+                                </div>
+                              </div>
+                        <% end %>
                     </div>
                 </div>
             </div>
@@ -95,7 +105,6 @@
 
                 <div class="row">
                     <% @parks.each do |park| %>
-
                     <div class="col-sm-4 portfolio-item">
                         <% if park.id % 3 == 1 %>
                         <% cssa = "park_background_image_cabin_a" %>
@@ -130,9 +139,16 @@
                                     更新時間：<%= park.updatetime %><br>
                                 </p>
                                 <p class="park_content_word" ;>
-                                    附近景點：
+                                  <% park_id = park.id %>
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-<%= park_id %>">
+                                    MORE...
+                                  </button>
                                 </p>
                             </div>
+                            <!-- Modal -->
+
+
+
                             <!--  <!%= image_tag "parking-imgs/cabin.png", class:"img-responsive"%> -->
                             <!--  <div class="fill" style="background-image:url(<!%=type.photo.image.url %>)"></div> -->
                         </a>
