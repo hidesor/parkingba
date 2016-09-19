@@ -102,7 +102,12 @@
                         <hr class="star-primary">
                     </div>
                 </div>
-
+                <div>
+                <%= form_tag(root_path, :method => "get", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "請輸入停車場名..." %>
+                    <%= submit_tag "Search" %>
+                <% end %>
+                <div>
                 <div class="row">
                     <% @parks.each do |park| %>
                     <div class="col-sm-4 portfolio-item">
