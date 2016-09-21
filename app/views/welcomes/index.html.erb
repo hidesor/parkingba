@@ -78,8 +78,12 @@
                         </div>
                         <!-- Large modal -->
                         <% park_id = nil %>
+
+                        <% i = 1 %>
                         <% @parks.each do |park| %>
                               <% park_id = park.id %>
+                              <% i += 1 %>
+                              <% if i < 3  %>
                               <div class="modal fade bs-example-modal-<%= park_id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                                 <div class="modal-dialog modal-lg" role="document">
                                   <div class="div_model modal-content">
@@ -87,8 +91,8 @@
                                      <% url_a = "http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+park.wgsy+","+park.wgsx+"("+park.parkname+")&z=16&output=embed&t=" %>
                                   <!--   <!%= url_a %><br> -->
                                   <!--   <section id="contact" class="map"> -->
-                                  <!--       <iframe width="100%" height="100%" frameborder="1" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>  -->
                                       <div class = "div_model_map">
+                                         <iframe width="100%" height="100%" frameborder="1" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
                                          <iframe width="100%" height="100%" frameborder="1" scrolling="no" marginheight="0" marginwidth="0" src="<%= url_a %>"></iframe>
                                       </div>
                                   <!--       <small>
@@ -98,6 +102,8 @@
                                   </div>
                                 </div>
                               </div>
+                              <% end %>
+
                         <% end %>
                     </div>
                 </div>
