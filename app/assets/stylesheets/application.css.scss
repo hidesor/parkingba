@@ -52,6 +52,13 @@
 }
 .text_model{
   color:#31c9de;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.text_model_address{
+  color:#ff0000;
 }
 
 .park_background_image_cabin_a {
@@ -87,7 +94,7 @@
 }
 .show_surplusspace_div{
    color:#FFFF00;
-   font-size:80px;
+   font-size:60px;
    padding-top: 0px;
 /*   padding-right: 20px;  */
    text-align:right;

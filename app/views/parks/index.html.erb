@@ -18,6 +18,7 @@
       <th>parkname</th>
       <th>introduction</th>
       <th>address</th>
+      <th>map_address</th>
       <th>totalspace</th>
       <th>surplusspace</th>
       <th>payguide</th>
@@ -38,6 +39,7 @@
         <td><%=park.parkname  %></td>
         <td><%=park.introduction  %></td>
         <td><%=park.address  %></td>
+        <td><%=park.map_address %></td>
         <td><%=park.totalspace  %></td>
         <td><%=park.surplusspace  %></td>
         <td><%=park.payguide  %></td>
@@ -45,7 +47,7 @@
         <td><%=park.wgsx  %></td>
         <td><%=park.wgsy  %></td>
     <!--    <td><!%= link_to 'Show', park %></td> -->
-    <!--    <td><!%= link_to 'Edit', edit_park_path(park) %></td> -->
+        <td><%= link_to 'Edit', edit_park_path(park) %></td>
     <!--    <td><!%= link_to 'Destroy', park, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>

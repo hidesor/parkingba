@@ -1,4 +1,6 @@
-<%= form_for(@park) do |f| %>
+<%= form_for((@park),html: {class: "form-horizontal form-label-left"}) do |f| %>
+<!--<!%= form_for([:admin, @rss.becomes(Rss)], html: {class: "form-horizontal form-label-left"}) do |f| %> -->
+
   <% if @park.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@park.errors.count, "error") %> prohibited this park from being saved:</h2>
@@ -9,9 +11,42 @@
       <% end %>
       </ul>
     </div>
+
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+
+
+  <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">
+          Parkname<span class="required">*</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <%=f.text_field :parkname,class:"form-control col-md-7 col-xs-12","data-parsley-id"=>"address",required: "required"%>
+          <ul id="parsley-id-rss_title" class="parsley-errors-list"></ul>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">
+          Address<span class="required">*</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <%=f.text_field :address,class:"form-control col-md-7 col-xs-12","data-parsley-id"=>"address",required: "required"%>
+          <ul id="parsley-id-rss_title" class="parsley-errors-list"></ul>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">
+          Address<span class="required">*</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <%=f.text_field :map_address,class:"form-control col-md-7 col-xs-12","data-parsley-id"=>"map_address",required: "required"%>
+          <ul id="parsley-id-rss_title" class="parsley-errors-list"></ul>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+          <button type="submit" class="btn btn-success">Submit</button>
+      </div>
   </div>
 <% end %>
