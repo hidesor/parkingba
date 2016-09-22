@@ -15,13 +15,13 @@ class ParksController < ApplicationController
       p params[:userx]
       p '---usery--'
       p params[:usery]
-      @parks = Park.all
+      @parks = Park.all.order(:id)
       if params[:search] && params[:order]
         #@parks = Park.search(params[:search]).order(wgsx: params[:order])
-        @parks = Park.search(params[:search]).order(:parkid)
+        @parks = Park.search(params[:search]).order(:id)
       elsif params[:order]
         #@parks = Park.all.order(wgsx: params[:order])
-        @parks = Park.all.order(:parkid)
+        @parks = Park.all.order(:id)
       end
       #get_json_create
       get_json
