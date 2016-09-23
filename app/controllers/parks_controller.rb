@@ -44,8 +44,14 @@ class ParksController < ApplicationController
                     p u['parkName'].to_s
                     p u['surplusSpace'].to_s
                     park.surplusspace = u['surplusSpace'].to_s
-                    park.updatetime = Time.now.localtime.to_formatted_s(:db).to_s
+
+                    t = Time.now + (60 * 60 * 8)
+                    park.updatetime = t.to_formatted_s(:db).to_s
+                    #park.updatetime = Time.now.localtime.to_formatted_s(:db).to_s
                     park.save
+                    p t
+
+
                 #else
                 #  Park.create(
                 #      _id: u['_id'].to_s,
@@ -66,7 +72,7 @@ class ParksController < ApplicationController
             end
         end
     end
-
+    p Time.now
     def get_json_create
       url = 'http://data.tycg.gov.tw/api/v1/rest/datastore/0daad6e6-0632-44f5-bd25-5e1de1e9146f?format=json'
       response = RestClient.get(url)
