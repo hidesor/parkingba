@@ -2,11 +2,12 @@ class WelcomesController < ApplicationController
   layout 'welcome'
   def index
     @parks = Park.all.order(:id)
-    if params[:search].present?
-        @parks = Park.near(params[:search].to_s, 2, :order => "distance")
+    @order = params[:order]
+    wgsx = params[:lat]
+    wgsy = params[:lng]
+
+    if @order=="distance"
+        @parks = Park.near([wgsx.to_f,wgsy.to_f],10).limit(6)
     end
-    p '-----userx-----'
-    # p params[:userx]
-    #  @projects = Project.search(params[:search])
   end
 end

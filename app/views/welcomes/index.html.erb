@@ -117,6 +117,7 @@
         <!-- Portfolio Grid Section -->
         <section id="portfolio">
             <div class="container">
+
                 <div class="row">
                     <div class="col-lg-12 text-center park_container">
                         <h2>Parking List</h2>
@@ -124,10 +125,7 @@
                     </div>
                 </div>
                 <div>
-                <%= form_tag(root_path, :method => "get", id: "search-form") do %>
-                    <%= text_field_tag :search, params[:search], placeholder: "請輸入停車場名..." %>
-                    <%= submit_tag "Search" %>
-                <% end %>
+                    <button class="map_btn" id="sort-btn" data-url="/">距離排序</button>
                 <div>
                 <div class="row">
                     <% @parks.each do |park| %>
@@ -268,5 +266,35 @@
         <!-- Theme JavaScript -->
         <%# <script src="js/freelancer.min.js"></script> %>
         <script src='/javascripts/freelancer.min.js'></script>
+
+        <script>
+$(document).ready(function(){
+function getLocation(){
+
+    var url = $("#sort-btn").attr("data-url");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(data){
+        console.log(data);
+        var lat = data.coords.latitude;
+        var lng = data.coords.longitude;
+        console.log("lat::" + lat + "; lng::" + lng);
+        location.href= url+"?order=distance&lat="+lat+"&lng="+lng;
+      }, function(data){
+
+      });
+    } else {
+        console.log("您的瀏覽器不支援");
+//       error('not supported');
+    }
+
+}
+
+$("#sort-btn").on("click",function(){
+    getLocation();
+});
+
+});
+    </script>
+
     </body>
 </html>

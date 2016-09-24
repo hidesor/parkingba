@@ -23,7 +23,7 @@ class ParksController < ApplicationController
         #@parks = Park.all.order(wgsx: params[:order])
         @parks = Park.all.order(:id)
       end
-      #get_json_create
+      # get_json_create
       get_json
     end
 
@@ -48,7 +48,7 @@ class ParksController < ApplicationController
                     now_t = Time.now + (60 * 60 * 8)
                     park.updatetime = now_t.to_formatted_s(:db).to_s
                     park.wgsx = u['wgsX'].to_f
-                    park.wgsy = u['wgsX'].to_f
+                    park.wgsy = u['wgsY'].to_f
 
                     #park.updatetime = Time.now.localtime.to_formatted_s(:db).to_s
                     park.save
