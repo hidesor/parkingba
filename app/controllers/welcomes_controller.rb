@@ -6,7 +6,7 @@ class WelcomesController < ApplicationController
         @parks = Park.near(params[:search].to_s, 2, :order => "distance")
     end
     p '-----userx-----'
-    p params[:userx]
+    # p params[:userx]
     #  @projects = Project.search(params[:search])
   end
 end
