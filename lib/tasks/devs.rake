@@ -11,12 +11,16 @@ namespace :devs do
           @park.each do |park|
               if park.parkid == u['parkId'].to_s
                   park.surplusspace = u['surplusSpace'].to_s
-                  park.updatetime = Time.now.localtime.to_formatted_s(:db).to_s
+                  #park.updatetime = Time.now.localtime.to_formatted_s(:db).to_s
+                  t = Time.now + (60 * 60 * 8)
+                  park.updatetime = t.to_formatted_s(:db).to_s
                   park.save
               end
           end
     end
     p 'sync finish'
     p Time.now
+    p t
+  #  p Time.zone.local.to_formatted_s(:db).to_s
   end
 end
