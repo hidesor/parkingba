@@ -1,7 +1,7 @@
 class WelcomesController < ApplicationController
   layout 'welcome'
   def index
-    @parks = Park.all.order(:id
+    @parks = Park.all.order(:id)
 
     if params[:search].present?
       p '-----userx-----'
