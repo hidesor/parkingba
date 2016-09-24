@@ -45,11 +45,13 @@ class ParksController < ApplicationController
                     p u['surplusSpace'].to_s
                     park.surplusspace = u['surplusSpace'].to_s
 
-                    t = Time.now + (60 * 60 * 8)
-                    park.updatetime = t.to_formatted_s(:db).to_s
+                    now_t = Time.now + (60 * 60 * 8)
+                    park.updatetime = now_t.to_formatted_s(:db).to_s
+                    park.wgsx = u['wgsX'].to_f
+                    park.wgsy = u['wgsX'].to_f
+
                     #park.updatetime = Time.now.localtime.to_formatted_s(:db).to_s
                     park.save
-                    p t
 
 
                 #else
@@ -92,8 +94,8 @@ class ParksController < ApplicationController
           payguide: u['payGuide'].to_s,
           #updatetime: u['updatetime'].to_s,
           updatetime: Time.new.to_formatted_s(:db).to_s,
-          wgsx: u['wgsX'].to_s,
-          wgsy: u['wgsY'].to_s
+          wgsx: u['wgsX'].to_f,
+          wgsy: u['wgsY'].to_f
       )
     end
     end

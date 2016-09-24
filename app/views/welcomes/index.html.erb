@@ -91,7 +91,7 @@
                                       <% address = park.map_address unless park.map_address.nil? %>
                                       <a class="text_model_address">   <%= "地址:"+ address %> </a>
                                     </h5>
-                                     <% url_a = "http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+park.wgsy+","+park.wgsx+"("+park.parkname+")&z=16&output=embed&t=;output=embed" %>
+                                     <% url_a = "http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+park.wgsy.to_s+","+park.wgsx.to_s+"("+park.parkname+")&z=16&output=embed&t=;output=embed" %>
 
                                   <!--   <section id="contact" class="map"> -->
                                       <div class = "div_model_map">
