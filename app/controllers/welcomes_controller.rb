@@ -6,7 +6,7 @@ class WelcomesController < ApplicationController
     if params[:search].present?
       p '-----userx-----'
       p params[:search]
-        @parks = Park.near(params[:search].to_s, 2, :order => "distance")
+        @parks = Park.near(params[:search].to_s, 2)
         p '-----userx-----'
         p @parks.first
 
