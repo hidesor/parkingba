@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcomes#index'
   get '/note',to: "welcomes#note"
   get '/test',to: "welcomes#test"
+  get '/jstest',to: "welcomes#jstest"
 
 
   #get '/mobile',to: "syncs#mobile"
