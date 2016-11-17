@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/note',to: "welcomes#note"
   get '/test',to: "welcomes#test"
   get '/jstest',to: "welcomes#jstest"
+  get '/jstest2',to: "welcomes#jstest2"
+
 
 
   #get '/mobile',to: "syncs#mobile"

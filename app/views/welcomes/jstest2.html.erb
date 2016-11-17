@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON demo</title>
+  <style>
+  img {
+    height: 100px;
+    float: left;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<br><br><br><br>
+<br><br>
+
+<br>
+
+<div id="images"></div>
+
+<script>
+  var target = "http://data.tycg.gov.tw/api/v1/rest/datastore/0daad6e6-0632-44f5-bd25-5e1de1e9146f?format=json";
+  function ajaxCall(target){
+  //發出 ajax call
+  var data = $.ajax({
+  type: "get",
+  //type: "POST",
+  async: true,//async設定false會變成同步請求 要完成ajax後才會繼續執行
+  url: target,
+  dataType: "jsonp",
+  jsonpCallback:"callBackdata",
+  //callback函式(jsonp的callback函式，預設是callback)
+  });
+  alert(data);
+}
+ajaxCall();
+</script>
+
+</body>
+</html>

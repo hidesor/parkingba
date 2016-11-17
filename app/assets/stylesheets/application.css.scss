@@ -18,7 +18,8 @@
 
 
 .navbar-background{
-  background-image: image-url("parking-imgs/navbar_background.png");
+  background-image: image-url("parking-imgs/navbar_background_1.png");
+  background-color: #fee6be;   /* 1fa6c6  a1a206  e69f0d*/
 }
 
  .div_container {
@@ -113,11 +114,15 @@
   -webkit-transform: rotate(5deg); /* Chrome, Safari, Opera */
   transform: rotate(-5deg);
  }
+
+
+
  .menu_li{
-   color:#FFFF00;
-   border:0px #ccc solid;
+   color:#000000;
+   border:0px #000000 solid;
    padding:6px;
  }
  .menu_word{
-   color:red;
+   color:#000000;
+   font-size:15px;
  }
