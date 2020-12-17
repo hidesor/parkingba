@@ -126,6 +126,10 @@ class ParksController < ApplicationController
     # GET /parks/1
     # GET /parks/1.json
     def show
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     # GET /parks/new

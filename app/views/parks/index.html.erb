@@ -5,7 +5,7 @@
 <%= text_field_tag :search, params[:search], placeholder: "請輸入停車場名..." %>
 <%= submit_tag "Search" %>
 <% end %>
-
+<div id="event_area"></div>
 <h1>Listing Parks</h1>
 
 <table class="table table-striped responsive-utilities jambo_table bulk_action">
@@ -25,6 +25,8 @@
       <th>updatetime</th>
       <th>wgsx</th>
       <th>wgsy</th>
+      <th>edit</th>
+      <th>ajsx</th>
     <!--  <th colspan="3"></th> -->
     </tr>
   </thead>
@@ -48,6 +50,7 @@
         <td><%=park.wgsy  %></td>
     <!--    <td><!%= link_to 'Show', park %></td> -->
         <td><%= link_to 'Edit', edit_park_path(park) %></td>
+        <td><%= link_to 'show', park_path(park), :remote => true %></td>
     <!--    <td><!%= link_to 'Destroy', park, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
